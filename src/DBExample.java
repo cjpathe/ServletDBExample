@@ -38,7 +38,9 @@ public class DBExample extends HttpServlet {
 		Statement stmt = null;
 		ResultSet rs = null;
 		// String sql = "select user from dual";
-		 String sql = "select company from companies where companyid < 18";
+		 String sql = "select fullname, company from customers inner join companies on "
+				 + "customers.companyid=companies.companyid" ;
+				 // + " where companyid < 18 ";
 		try{
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:ora1/ora1@localhost:1521:orcl");
